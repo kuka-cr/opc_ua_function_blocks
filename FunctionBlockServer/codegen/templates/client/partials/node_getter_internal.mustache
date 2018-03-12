@@ -1,0 +1,5 @@
+@Override
+public {{type}} get{{> Variable}}Node() {
+	QualifiedName browseName = getQualifiedName("{{browsename.namespace}}", "{{browsename.name}}");
+	return ({{type}}) getComponent(browseName);
+}

@@ -1,0 +1,27 @@
+@Override
+public {{> datatype_type}} {{#bool?}}is{{/bool?}}{{^bool?}}get{{/bool?}}{{> Variable}}() {
+	UaVariable node = get{{> Variable}}Node();
+	if (node == null)
+		{{#mandatory?}}
+		throw new RuntimeException("Mandatory node {{> Variable}} does not exist");
+		{{/mandatory?}}
+		{{^mandatory?}}
+		return null;
+		{{/mandatory?}}
+	Object value = node.getValue().getValue().getValue();
+	{{#enum?}}
+	{{#array?}}
+	Integer[] valueArray = (Integer[]) value;
+	{{> datatype_type}} returnValue = new {{datatype.type}}[valueArray.length];
+	for (int i = 0; i < valueArray.length; i++)
+		returnValue[i] = {{datatype.type}}.valueOf(valueArray[i]);
+	return returnValue;
+	{{/array?}}
+	{{^array?}}
+	return {{datatype.type}}.valueOf((Integer) value);
+	{{/array?}}
+	{{/enum?}}
+	{{^enum?}}
+	return ({{> datatype_type}}) value;
+	{{/enum?}}
+}

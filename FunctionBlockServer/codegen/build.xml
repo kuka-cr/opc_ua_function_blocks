@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+
+<!-- Targets: codegen.codegen (default) -->
+<project name="codegen" default="codegen.codegen" basedir=".">
+	<dirname property="codegen.basedir" file="${ant.file.codegen}" />
+
+	<!-- Read properties file -->
+	<property name="codegen.properties.file" value="${codegen.basedir}/codegen.properties" />
+	<property file="${codegen.properties.file}" />
+	<!-- property name="force" value="false" /> -->
+	<property name="codegen.target.files" value="${codegen.properties.targets}" />
+	<property name="codegen.target.package" value="${codegen.properties.package}" />
+	<!-- property name="codegen.target.package.base" value="${codegen.properties.package.base}" /-->
+	
+	<property name="codegen.target.file" value="" />
+	<property name="codegen.templates" value="${codegen.properties.templates}" />
+	<property name="codegen.templates.dir" value="${codegen.basedir}/templates" />
+	<property name="codegen.template.dir" value="" />
+	<property name="codegen.output.interface.dir"
+		value="${codegen.basedir}/${codegen.properties.output-intf}" />
+	<property name="codegen.output.implementation.dir"
+		value="${codegen.basedir}/${codegen.properties.output-impl}" />
+
+	<property name="codegen.jar.name" value="codegen-2.2.4-standalone.jar" />
+	<property name="codegen.jar" value="${codegen.basedir}/${codegen.jar.name}" />
+	<property name="codegen.output.file" value="${codegen.output.interface.dir}/.codegen" />
+	<property name="codegen.lib.dir" value="${codegen.basedir}/lib" />
+
+	<taskdef classpath="${codegen.basedir}\ant-contrib-1.0b3.jar"
+		resource="net/sf/antcontrib/antcontrib.properties" />
+
+	<target name="codegen.codegen"
+		description="Generates code from specified targets in codegen.properties file.">
+		<condition property="no-targets">
+			<matches pattern="^$" string="${codegen.target.files}" />
+		</condition>
+		
+		<resourcecount property="files.count">
+		  <filelist files="${codegen.target.files}" />
+		</resourcecount>
+		
+		<!-- Ensuring that several information models are not generated to the same package. 
+			 Set property if codegen.targets.files contains more than one entry and codegen.target.package is not empty. -->
+		<condition property="inconsistent-files-and-packages">
+			<and>
+				<not><matches pattern="^$" string="${codegen.target.package}" /></not>
+				<not>
+					<equals arg1="${files.count}" arg2="1" />
+				</not>
+			</and>
+		</condition>
+		
+		<fail message="No target files defined in ${codegen.properties.file}"
+			if="no-targets" />
+		<fail message="No target files defined in ${codegen.properties.file}"
+			if="no-targets" />
+		<fail message="Codegen.targets.files contains more than one entry and codegen.target.package is not empty" 
+			if="inconsistent-files-and-packages" />
+		
+		<condition property="not-enough-targets">
+			<matches pattern="^$" string="${codegen.target.files}" />
+		</condition>
+		
+		<foreach target="codegen.codegen-templates" param="codegen.target.file"
+			parallel="true" trim="true">
+			<path>
+				<filelist dir="${codegen.basedir}" files="${codegen.target.files}" />
+			</path>
+		</foreach>
+	</target>
+
+	<target name="codegen.codegen-templates">
+		<foreach target="codegen.codegen-single" param="codegen.template.dir"
+			parallel="true" trim="true">
+			<path>
+				<filelist dir="${codegen.templates.dir}" files="${codegen.templates}" />
+			</path>
+		</foreach>
+	</target>
+
+	<target name="codegen.codegen-single-check">
+		<uptodate property="codegen.uptodate" targetfile="${codegen.output.file}">
+			<srcfiles file="${codegen.jar}" />
+			<srcfiles file="${codegen.target.file}" />
+			<srcfiles file="${codegen.properties.file}" />
+			<srcfiles dir="${codegen.template.dir}" includes="**/*.mustache" />
+			<srcfiles dir="${codegen.lib.dir}" includes="*.NodeSet2.xml" />
+		</uptodate>
+		<condition property="run-without-package">
+			<and>
+				<or>
+					<isset property="force" />
+					<not>
+						<isset property="codegen.uptodate" />
+					</not>
+				</or>
+				<matches pattern="^$" string="${codegen.target.package}" />
+			</and>
+		</condition>
+		<condition property="run-with-package">
+			<and>
+				<or>
+					<isset property="force" />
+					<not>
+						<isset property="codegen.uptodate" />
+					</not>
+				</or>
+				<not>
+					<matches pattern="^$" string="${codegen.target.package}" />
+				</not>
+			</and>
+		</condition>
+		<!--
+		<echo>"Up to date: ${codegen.uptodate}"</echo>
+		<echo>Output: ${codegen.output.file}</echo>
+		<echo>Properties: ${codegen.properties.file}</echo>
+		<echo>Target: ${codegen.target.file}</echo>
+		-->
+	</target>
+
+	<target name="codegen.codegen-single"
+		depends="codegen.codegen-single-check,codegen.codegen-single-with-package,codegen.codegen-single-without-package"
+		unless="codegen.uptodate">
+		<echo>Generated code for ${codegen.target.file}</echo>
+		<echo>Generated code to ${codegen.output.interface.dir}</echo>
+	</target>
+
+	<target name="codegen.codegen-single-with-package" depends="codegen.codegen-single-check"
+		if="run-with-package">
+		<java jar="${codegen.jar}" failonerror="true" fork="true">
+			<arg value="${codegen.target.file}" />
+			<arg value="${codegen.lib.dir}" />
+			<arg value="${codegen.template.dir}" />
+			<arg value="${codegen.output.interface.dir}" />
+			<arg value="${codegen.output.implementation.dir}" />
+			<arg value="${codegen.target.package}" />
+		</java>
+	</target>
+
+	<target name="codegen.codegen-single-without-package" depends="codegen.codegen-single-check"
+		if="run-without-package">
+		<java jar="${codegen.jar}" failonerror="true" fork="true">
+			<arg value="${codegen.target.file}" />
+			<arg value="${codegen.lib.dir}" />
+			<arg value="${codegen.template.dir}" />
+			<arg value="${codegen.output.interface.dir}" />
+			<arg value="${codegen.output.implementation.dir}" />
+		</java>
+	</target>
+</project>

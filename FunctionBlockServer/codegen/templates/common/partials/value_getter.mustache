@@ -1,0 +1,8 @@
+{{#mandatory?}}
+@Mandatory
+{{> datatype_type}} {{#bool?}}is{{/bool?}}{{^bool?}}get{{/bool?}}{{> Variable}}();
+{{/mandatory?}}
+{{#optional?}}
+@Optional
+{{> datatype_type}} {{#bool?}}is{{/bool?}}{{^bool?}}get{{/bool?}}{{> Variable}}();
+{{/optional?}}

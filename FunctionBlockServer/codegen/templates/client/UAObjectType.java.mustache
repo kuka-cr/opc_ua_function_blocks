@@ -1,0 +1,31 @@
+{:targets [:ObjectType]
+ :package ".client"
+ :name "Impl"
+ :overwrite? false}
+---
+/**
+ * Prosys OPC UA Java SDK
+ *
+ * Copyright (c) Prosys PMS Ltd., http://www.prosysopc.com.
+ * All rights reserved.
+ */
+
+package {{package}};
+
+{{#dependencies}}
+import {{package}}.{{class}};
+{{/dependencies}}
+  
+{{#description?}}
+/**
+{{#description}}
+ * {{.}}
+{{/description}}
+ */
+{{/description?}}
+@TypeDefinitionId("nsu={{nodeid.namespace}};{{nodeid.id}}")
+public class {{classname}} extends {{classname}}Base {
+  protected {{classname}}(AddressSpace addressSpace, NodeId nodeId, QualifiedName browseName, LocalizedText displayName) {
+    super(addressSpace, nodeId, browseName, displayName);
+  }
+}

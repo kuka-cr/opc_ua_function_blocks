@@ -1,0 +1,12 @@
+{{#properties}}
+	public static final String {{#camelcase-to-constant}}{{#camelcase}}{{symbolicname}}{{/camelcase}}{{/camelcase-to-constant}} = "{{browsename.name}}";
+{{/properties}}
+{{#objects}}
+	public static final String {{#camelcase-to-constant}}{{#camelcase}}{{symbolicname}}{{/camelcase}}{{/camelcase-to-constant}} = "{{browsename.name}}";
+{{/objects}}
+{{#datavariables}}
+	public static final String {{#camelcase-to-constant}}{{#camelcase}}{{symbolicname}}{{/camelcase}}{{/camelcase-to-constant}} = "{{browsename.name}}";
+{{/datavariables}}
+{{#methods}}
+	public static final String {{#camelcase-to-constant}}{{#camelcase}}{{symbolicname}}{{/camelcase}}{{/camelcase-to-constant}} = "{{browsename.name}}";
+{{/methods}}

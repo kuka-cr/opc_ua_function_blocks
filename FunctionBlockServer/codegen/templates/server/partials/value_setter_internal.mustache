@@ -1,0 +1,12 @@
+@Override
+public void set{{> Variable}}({{> datatype_type}} value) {
+	UaVariable node = get{{> Variable}}Node();
+	if (node==null){
+		throw new RuntimeException("Setting {{> Variable}} failed: does not exist (Optional Nodes must be configured in NodeBuilder)");
+	}      
+	try {
+		node.setValue(value);
+	} catch(StatusException e) {
+	throw new RuntimeException("Setting {{> Variable}} failed unexpectedly",e);
+	}
+}

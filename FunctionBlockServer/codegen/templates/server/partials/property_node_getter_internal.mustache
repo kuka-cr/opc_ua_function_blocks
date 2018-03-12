@@ -1,0 +1,5 @@
+@Override
+public UaProperty get{{> Variable}}Node() {
+	QualifiedName browseName = getQualifiedName("{{browsename.namespace}}", "{{browsename.name}}");
+	return getProperty(browseName);
+}

@@ -1,0 +1,8 @@
+{{#mandatory?}}
+@Mandatory
+void set{{> Variable}}({{> datatype_type}} value) throws StatusException;
+{{/mandatory?}}
+{{#optional?}}
+@Optional
+void set{{> Variable}}({{> datatype_type}} value) throws StatusException;
+{{/optional?}}

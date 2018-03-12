@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="http://kuka.com/kuka_datatypes/Types.xsd" xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <NamespaceUris>
+        <Uri>http://kuka.com/kuka_datatypes/</Uri>
+    </NamespaceUris>
+    <Aliases>
+        <Alias Alias="Int16">i=4</Alias>
+        <Alias Alias="Double">i=11</Alias>
+        <Alias Alias="String">i=12</Alias>
+        <Alias Alias="ByteString">i=15</Alias>
+        <Alias Alias="HasEncoding">i=38</Alias>
+        <Alias Alias="HasDescription">i=39</Alias>
+        <Alias Alias="HasTypeDefinition">i=40</Alias>
+        <Alias Alias="HasSubtype">i=45</Alias>
+        <Alias Alias="HasProperty">i=46</Alias>
+        <Alias Alias="HasComponent">i=47</Alias>
+    </Aliases>
+    <Extensions>
+        <Extension>
+            <ua:ModelInfo Tool="UaModeler" Hash="dKo7Vq3+TFHOEzD6ubRkDQ==" Version="1.5.2"/>
+        </Extension>
+    </Extensions>
+    <UADataType NodeId="ns=1;i=3004" BrowseName="1:APO">
+        <DisplayName>APO</DisplayName>
+        <Description>Blending parameters</Description>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5005</Reference>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5006</Reference>
+        </References>
+        <Definition Name="1:APO">
+            <Field DataType="Int16" Name="PTP_MODE"/>
+            <Field DataType="Int16" Name="CP_MODE"/>
+            <Field DataType="Int16" Name="CPTP">
+                <Description>1..100%</Description>
+            </Field>
+            <Field DataType="Double" Name="CDIS">
+                <Description>mm</Description>
+            </Field>
+            <Field DataType="Double" Name="CORI">
+                <Description>degree</Description>
+            </Field>
+            <Field DataType="Int16" Name="CVEL">
+                <Description>1..100%</Description>
+            </Field>
+        </Definition>
+    </UADataType>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6001" NodeId="ns=1;i=6009" BrowseName="1:APO">
+        <DisplayName>APO</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5005</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6001</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+        </References>
+        <Value>
+            <uax:String>APO</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6003" NodeId="ns=1;i=6010" BrowseName="1:APO">
+        <DisplayName>APO</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5006</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6003</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+        </References>
+        <Value>
+            <uax:String>//xs:element[@name='APO']</uax:String>
+        </Value>
+    </UAVariable>
+    <UADataType NodeId="ns=1;i=3003" BrowseName="1:COORDSYS">
+        <DisplayName>COORDSYS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5004</Reference>
+        </References>
+        <Definition Name="1:COORDSYS">
+            <Field DataType="Int16" Name="Tool"/>
+            <Field DataType="Int16" Name="Base"/>
+            <Field DataType="Int16" Name="IPO_MODE"/>
+        </Definition>
+    </UADataType>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6001" NodeId="ns=1;i=6007" BrowseName="1:COORDSYS">
+        <DisplayName>COORDSYS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5003</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6001</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+        </References>
+        <Value>
+            <uax:String>COORDSYS</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6003" NodeId="ns=1;i=6008" BrowseName="1:COORDSYS">
+        <DisplayName>COORDSYS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5004</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6003</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+        </References>
+        <Value>
+            <uax:String>//xs:element[@name='COORDSYS']</uax:String>
+        </Value>
+    </UAVariable>
+    <UADataType NodeId="ns=1;i=3002" BrowseName="1:E6POS">
+        <DisplayName>E6POS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5001</Reference>
+            <Reference ReferenceType="HasEncoding">ns=1;i=5002</Reference>
+            <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+        </References>
+        <Definition Name="1:E6POS">
+            <Field DataType="Double" Name="X">
+                <Description>mm</Description>
+            </Field>
+            <Field DataType="Double" Name="Y"/>
+            <Field DataType="Double" Name="Z"/>
+            <Field DataType="Double" Name="A">
+                <Description>degrees</Description>
+            </Field>
+            <Field DataType="Double" Name="B"/>
+            <Field DataType="Double" Name="C"/>
+            <Field DataType="Int16" Name="S">
+                <Description>Status</Description>
+            </Field>
+            <Field DataType="Int16" Name="T">
+                <Description>Turn</Description>
+            </Field>
+            <Field IsOptional="true" DataType="Double" Name="E1">
+                <Description>Degree or mm</Description>
+            </Field>
+            <Field IsOptional="true" DataType="Double" Name="E2"/>
+            <Field IsOptional="true" DataType="Double" Name="E3"/>
+            <Field IsOptional="true" DataType="Double" Name="E4"/>
+            <Field IsOptional="true" DataType="Double" Name="E5"/>
+            <Field IsOptional="true" DataType="Double" Name="E6"/>
+        </Definition>
+    </UADataType>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6001" NodeId="ns=1;i=6005" BrowseName="1:E6POS">
+        <DisplayName>E6POS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5001</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6001</Reference>
+        </References>
+        <Value>
+            <uax:String>E6POS</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" NodeId="ns=1;i=6006" BrowseName="1:E6POS">
+        <DisplayName>E6POS</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+            <Reference ReferenceType="HasDescription" IsForward="false">ns=1;i=5002</Reference>
+        </References>
+        <Value>
+            <uax:String>//xs:element[@name='E6POS']</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable SymbolicName="KukaDatatypeDictionary_BinarySchema" DataType="ByteString" NodeId="ns=1;i=6001" BrowseName="1:KukaDatatypeDictionary">
+        <DisplayName>KukaDatatypeDictionary</DisplayName>
+        <Description>Collects the data type descriptions of http://kuka.com/kuka_datatypes/</Description>
+        <References>
+            <Reference ReferenceType="HasComponent">ns=1;i=6009</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6007</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=72</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6005</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">i=93</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
+        </References>
+        <Value>
+            <uax:ByteString>PG9wYzpUeXBlRGljdGlvbmFyeSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZ
+        W1hLWluc3RhbmNlIiB4bWxuczp0bnM9Imh0dHA6Ly9rdWthLmNvbS9rdWthX2RhdGF0eXBlc
+        y8iIERlZmF1bHRCeXRlT3JkZXI9IkxpdHRsZUVuZGlhbiIgeG1sbnM6b3BjPSJodHRwOi8vb
+        3BjZm91bmRhdGlvbi5vcmcvQmluYXJ5U2NoZW1hLyIgeG1sbnM6dWE9Imh0dHA6Ly9vcGNmb
+        3VuZGF0aW9uLm9yZy9VQS8iIFRhcmdldE5hbWVzcGFjZT0iaHR0cDovL2t1a2EuY29tL2t1a
+        2FfZGF0YXR5cGVzLyI+CiA8b3BjOkltcG9ydCBOYW1lc3BhY2U9Imh0dHA6Ly9vcGNmb3VuZ
+        GF0aW9uLm9yZy9VQS8iLz4KIDxvcGM6U3RydWN0dXJlZFR5cGUgQmFzZVR5cGU9InVhOkV4d
+        GVuc2lvbk9iamVjdCIgTmFtZT0iQVBPIj4KICA8b3BjOkRvY3VtZW50YXRpb24+QmxlbmRpb
+        mcgcGFyYW1ldGVyczwvb3BjOkRvY3VtZW50YXRpb24+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZ
+        T0ib3BjOkludDE2IiBOYW1lPSJQVFBfTU9ERSIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9I
+        m9wYzpJbnQxNiIgTmFtZT0iQ1BfTU9ERSIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9Im9wY
+        zpJbnQxNiIgTmFtZT0iQ1BUUCIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9Im9wYzpEb3Vib
+        GUiIE5hbWU9IkNESVMiLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6RG91YmxlIiBOY
+        W1lPSJDT1JJIi8+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkludDE2IiBOYW1lPSJDV
+        kVMIi8+CiA8L29wYzpTdHJ1Y3R1cmVkVHlwZT4KIDxvcGM6U3RydWN0dXJlZFR5cGUgQmFzZ
+        VR5cGU9InVhOkV4dGVuc2lvbk9iamVjdCIgTmFtZT0iQ09PUkRTWVMiPgogIDxvcGM6Rmllb
+        GQgVHlwZU5hbWU9Im9wYzpJbnQxNiIgTmFtZT0iVG9vbCIvPgogIDxvcGM6RmllbGQgVHlwZ
+        U5hbWU9Im9wYzpJbnQxNiIgTmFtZT0iQmFzZSIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9I
+        m9wYzpJbnQxNiIgTmFtZT0iSVBPX01PREUiLz4KIDwvb3BjOlN0cnVjdHVyZWRUeXBlPgogP
+        G9wYzpTdHJ1Y3R1cmVkVHlwZSBCYXNlVHlwZT0idWE6RXh0ZW5zaW9uT2JqZWN0IiBOYW1lP
+        SJFNlBPUyI+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkJpdCIgTmFtZT0iRTFTcGVja
+        WZpZWQiLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6Qml0IiBOYW1lPSJFMlNwZWNpZ
+        mllZCIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9Im9wYzpCaXQiIE5hbWU9IkUzU3BlY2lma
+        WVkIi8+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkJpdCIgTmFtZT0iRTRTcGVjaWZpZ
+        WQiLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6Qml0IiBOYW1lPSJFNVNwZWNpZmllZ
+        CIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9Im9wYzpCaXQiIE5hbWU9IkU2U3BlY2lmaWVkI
+        i8+CiAgPG9wYzpGaWVsZCBMZW5ndGg9IjI2IiBUeXBlTmFtZT0ib3BjOkJpdCIgTmFtZT0iU
+        mVzZXJ2ZWQxIi8+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkRvdWJsZSIgTmFtZT0iW
+        CIvPgogIDxvcGM6RmllbGQgVHlwZU5hbWU9Im9wYzpEb3VibGUiIE5hbWU9IlkiLz4KICA8b
+        3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6RG91YmxlIiBOYW1lPSJaIi8+CiAgPG9wYzpGaWVsZ
+        CBUeXBlTmFtZT0ib3BjOkRvdWJsZSIgTmFtZT0iQSIvPgogIDxvcGM6RmllbGQgVHlwZU5hb
+        WU9Im9wYzpEb3VibGUiIE5hbWU9IkIiLz4KICA8b3BjOkZpZWxkIFR5cGVOYW1lPSJvcGM6R
+        G91YmxlIiBOYW1lPSJDIi8+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkludDE2IiBOY
+        W1lPSJTIi8+CiAgPG9wYzpGaWVsZCBUeXBlTmFtZT0ib3BjOkludDE2IiBOYW1lPSJUIi8+C
+        iAgPG9wYzpGaWVsZCBTd2l0Y2hGaWVsZD0iRTFTcGVjaWZpZWQiIFR5cGVOYW1lPSJvcGM6R
+        G91YmxlIiBOYW1lPSJFMSIvPgogIDxvcGM6RmllbGQgU3dpdGNoRmllbGQ9IkUyU3BlY2lma
+        WVkIiBUeXBlTmFtZT0ib3BjOkRvdWJsZSIgTmFtZT0iRTIiLz4KICA8b3BjOkZpZWxkIFN3a
+        XRjaEZpZWxkPSJFM1NwZWNpZmllZCIgVHlwZU5hbWU9Im9wYzpEb3VibGUiIE5hbWU9IkUzI
+        i8+CiAgPG9wYzpGaWVsZCBTd2l0Y2hGaWVsZD0iRTRTcGVjaWZpZWQiIFR5cGVOYW1lPSJvc
+        GM6RG91YmxlIiBOYW1lPSJFNCIvPgogIDxvcGM6RmllbGQgU3dpdGNoRmllbGQ9IkU1U3BlY
+        2lmaWVkIiBUeXBlTmFtZT0ib3BjOkRvdWJsZSIgTmFtZT0iRTUiLz4KICA8b3BjOkZpZWxkI
+        FN3aXRjaEZpZWxkPSJFNlNwZWNpZmllZCIgVHlwZU5hbWU9Im9wYzpEb3VibGUiIE5hbWU9I
+        kU2Ii8+CiA8L29wYzpTdHJ1Y3R1cmVkVHlwZT4KPC9vcGM6VHlwZURpY3Rpb25hcnk+Cg==</uax:ByteString>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6001" NodeId="ns=1;i=6002" BrowseName="NamespaceUri">
+        <DisplayName>NamespaceUri</DisplayName>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6001</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:String>http://kuka.com/kuka_datatypes/</uax:String>
+        </Value>
+    </UAVariable>
+    <UAVariable SymbolicName="TypeDictionary_XmlSchema" DataType="ByteString" NodeId="ns=1;i=6003" BrowseName="1:TypeDictionary">
+        <DisplayName>TypeDictionary</DisplayName>
+        <Description>Collects the data type descriptions of http://kuka.com/kuka_datatypes/</Description>
+        <References>
+            <Reference ReferenceType="HasComponent">ns=1;i=6010</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6008</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=72</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6004</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">i=92</Reference>
+        </References>
+        <Value>
+            <uax:ByteString>PHhzOnNjaGVtYSBlbGVtZW50Rm9ybURlZmF1bHQ9InF1YWxpZmllZCIgdGFyZ2V0TmFtZXNwYWNlPSJod
+        HRwOi8va3VrYS5jb20va3VrYV9kYXRhdHlwZXMvVHlwZXMueHNkIiB4bWxuczp0bnM9Imh0d
+        HA6Ly9rdWthLmNvbS9rdWthX2RhdGF0eXBlcy9UeXBlcy54c2QiIHhtbG5zOnVhPSJodHRwO
+        i8vb3BjZm91bmRhdGlvbi5vcmcvVUEvMjAwOC8wMi9UeXBlcy54c2QiIHhtbG5zOnhzPSJod
+        HRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSI+CiA8eHM6aW1wb3J0IG5hbWVzcGFjZ
+        T0iaHR0cDovL29wY2ZvdW5kYXRpb24ub3JnL1VBLzIwMDgvMDIvVHlwZXMueHNkIi8+CiA8e
+        HM6Y29tcGxleFR5cGUgbmFtZT0iQVBPIj4KICA8eHM6YW5ub3RhdGlvbj4KICAgPHhzOmRvY
+        3VtZW50YXRpb24+QmxlbmRpbmcgcGFyYW1ldGVyczwveHM6ZG9jdW1lbnRhdGlvbj4KICA8L
+        3hzOmFubm90YXRpb24+CiAgPHhzOnNlcXVlbmNlPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1c
+        nM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ieHM6c2hvcnQiIG5hbWU9IlBUUF9NT0RFIi8+C
+        iAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIiB0eXBlPSJ4czpza
+        G9ydCIgbmFtZT0iQ1BfTU9ERSIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1he
+        E9jY3Vycz0iMSIgdHlwZT0ieHM6c2hvcnQiIG5hbWU9IkNQVFAiLz4KICAgPHhzOmVsZW1lb
+        nQgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InhzOmRvdWJsZSIgbmFtZT0iQ
+        0RJUyIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZ
+        T0ieHM6ZG91YmxlIiBuYW1lPSJDT1JJIi8+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iM
+        CIgbWF4T2NjdXJzPSIxIiB0eXBlPSJ4czpzaG9ydCIgbmFtZT0iQ1ZFTCIvPgogIDwveHM6c
+        2VxdWVuY2U+CiA8L3hzOmNvbXBsZXhUeXBlPgogPHhzOmVsZW1lbnQgdHlwZT0idG5zOkFQT
+        yIgbmFtZT0iQVBPIi8+CiA8eHM6Y29tcGxleFR5cGUgbmFtZT0iTGlzdE9mQVBPIj4KICA8e
+        HM6c2VxdWVuY2U+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSJ1b
+        mJvdW5kZWQiIHR5cGU9InRuczpBUE8iIG5hbWU9IkFQTyIgbmlsbGFibGU9InRydWUiLz4KI
+        CA8L3hzOnNlcXVlbmNlPgogPC94czpjb21wbGV4VHlwZT4KIDx4czplbGVtZW50IHR5cGU9I
+        nRuczpMaXN0T2ZBUE8iIG5hbWU9Ikxpc3RPZkFQTyIgbmlsbGFibGU9InRydWUiLz4KIDx4c
+        zpjb21wbGV4VHlwZSBuYW1lPSJDT09SRFNZUyI+CiAgPHhzOnNlcXVlbmNlPgogICA8eHM6Z
+        WxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ieHM6c2hvcnQiIG5hb
+        WU9IlRvb2wiLz4KICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiI
+        HR5cGU9InhzOnNob3J0IiBuYW1lPSJCYXNlIi8+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vyc
+        z0iMCIgbWF4T2NjdXJzPSIxIiB0eXBlPSJ4czpzaG9ydCIgbmFtZT0iSVBPX01PREUiLz4KI
+        CA8L3hzOnNlcXVlbmNlPgogPC94czpjb21wbGV4VHlwZT4KIDx4czplbGVtZW50IHR5cGU9I
+        nRuczpDT09SRFNZUyIgbmFtZT0iQ09PUkRTWVMiLz4KIDx4czpjb21wbGV4VHlwZSBuYW1lP
+        SJMaXN0T2ZDT09SRFNZUyI+CiAgPHhzOnNlcXVlbmNlPgogICA8eHM6ZWxlbWVudCBtaW5PY
+        2N1cnM9IjAiIG1heE9jY3Vycz0idW5ib3VuZGVkIiB0eXBlPSJ0bnM6Q09PUkRTWVMiIG5hb
+        WU9IkNPT1JEU1lTIiBuaWxsYWJsZT0idHJ1ZSIvPgogIDwveHM6c2VxdWVuY2U+CiA8L3hzO
+        mNvbXBsZXhUeXBlPgogPHhzOmVsZW1lbnQgdHlwZT0idG5zOkxpc3RPZkNPT1JEU1lTIiBuY
+        W1lPSJMaXN0T2ZDT09SRFNZUyIgbmlsbGFibGU9InRydWUiLz4KIDx4czpjb21wbGV4VHlwZ
+        SBuYW1lPSJFNlBPUyI+CiAgPHhzOnNlcXVlbmNlPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1c
+        nM9IjAiIHR5cGU9InhzOnVuc2lnbmVkSW50IiBuYW1lPSJFbmNvZGluZ01hc2siLz4KICAgP
+        HhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InhzOmRvdWJsZ
+        SIgbmFtZT0iWCIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iM
+        SIgdHlwZT0ieHM6ZG91YmxlIiBuYW1lPSJZIi8+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vyc
+        z0iMCIgbWF4T2NjdXJzPSIxIiB0eXBlPSJ4czpkb3VibGUiIG5hbWU9IloiLz4KICAgPHhzO
+        mVsZW1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InhzOmRvdWJsZSIgb
+        mFtZT0iQSIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgd
+        HlwZT0ieHM6ZG91YmxlIiBuYW1lPSJCIi8+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iM
+        CIgbWF4T2NjdXJzPSIxIiB0eXBlPSJ4czpkb3VibGUiIG5hbWU9IkMiLz4KICAgPHhzOmVsZ
+        W1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiIHR5cGU9InhzOnNob3J0IiBuYW1lP
+        SJTIi8+CiAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIiB0eXBlP
+        SJ4czpzaG9ydCIgbmFtZT0iVCIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1he
+        E9jY3Vycz0iMSIgdHlwZT0ieHM6ZG91YmxlIiBuYW1lPSJFMSIvPgogICA8eHM6ZWxlbWVud
+        CBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ieHM6ZG91YmxlIiBuYW1lPSJFM
+        iIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ie
+        HM6ZG91YmxlIiBuYW1lPSJFMyIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1he
+        E9jY3Vycz0iMSIgdHlwZT0ieHM6ZG91YmxlIiBuYW1lPSJFNCIvPgogICA8eHM6ZWxlbWVud
+        CBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ieHM6ZG91YmxlIiBuYW1lPSJFN
+        SIvPgogICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSIgdHlwZT0ie
+        HM6ZG91YmxlIiBuYW1lPSJFNiIvPgogIDwveHM6c2VxdWVuY2U+CiAgPHhzOmF0dHJpYnV0Z
+        SBuYW1lPSJFbmNvZGluZ1RhYmxlIiBmaXhlZD0iRTE6MCxFMjoxLEUzOjIsRTQ6MyxFNTo0L
+        EU2OjUiLz4KIDwveHM6Y29tcGxleFR5cGU+CiA8eHM6ZWxlbWVudCB0eXBlPSJ0bnM6RTZQT
+        1MiIG5hbWU9IkU2UE9TIi8+CiA8eHM6Y29tcGxleFR5cGUgbmFtZT0iTGlzdE9mRTZQT1MiP
+        gogIDx4czpzZXF1ZW5jZT4KICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBtYXhPY2N1c
+        nM9InVuYm91bmRlZCIgdHlwZT0idG5zOkU2UE9TIiBuYW1lPSJFNlBPUyIgbmlsbGFibGU9I
+        nRydWUiLz4KICA8L3hzOnNlcXVlbmNlPgogPC94czpjb21wbGV4VHlwZT4KIDx4czplbGVtZ
+        W50IHR5cGU9InRuczpMaXN0T2ZFNlBPUyIgbmFtZT0iTGlzdE9mRTZQT1MiIG5pbGxhYmxlP
+        SJ0cnVlIi8+CjwveHM6c2NoZW1hPgo=</uax:ByteString>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="String" ParentNodeId="ns=1;i=6003" NodeId="ns=1;i=6004" BrowseName="NamespaceUri">
+        <DisplayName>NamespaceUri</DisplayName>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6003</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:String>http://kuka.com/kuka_datatypes/Types.xsd</uax:String>
+        </Value>
+    </UAVariable>
+    <UAObject SymbolicName="DefaultBinary" NodeId="ns=1;i=5001" BrowseName="Default Binary">
+        <DisplayName>Default Binary</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3002</Reference>
+            <Reference ReferenceType="HasDescription">ns=1;i=6005</Reference>
+        </References>
+    </UAObject>
+    <UAObject SymbolicName="DefaultXml" NodeId="ns=1;i=5002" BrowseName="Default XML">
+        <DisplayName>Default XML</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3002</Reference>
+            <Reference ReferenceType="HasDescription">ns=1;i=6006</Reference>
+        </References>
+    </UAObject>
+    <UAObject SymbolicName="DefaultBinary" NodeId="ns=1;i=5003" BrowseName="Default Binary">
+        <DisplayName>Default Binary</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription">ns=1;i=6007</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3003</Reference>
+        </References>
+    </UAObject>
+    <UAObject SymbolicName="DefaultXml" NodeId="ns=1;i=5004" BrowseName="Default XML">
+        <DisplayName>Default XML</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription">ns=1;i=6008</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3003</Reference>
+        </References>
+    </UAObject>
+    <UAObject SymbolicName="DefaultBinary" NodeId="ns=1;i=5005" BrowseName="Default Binary">
+        <DisplayName>Default Binary</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription">ns=1;i=6009</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3004</Reference>
+        </References>
+    </UAObject>
+    <UAObject SymbolicName="DefaultXml" NodeId="ns=1;i=5006" BrowseName="Default XML">
+        <DisplayName>Default XML</DisplayName>
+        <References>
+            <Reference ReferenceType="HasDescription">ns=1;i=6010</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+            <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3004</Reference>
+        </References>
+    </UAObject>
+</UANodeSet>

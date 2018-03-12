@@ -1,0 +1,7 @@
+QualifiedName {{> variable}}BrowseName = nodeManager.getQualifiedName("{{browsename.namespace}}", "{{{browsename.name}}}");
+{{> variable}} = new {{type}}(nodeManager,
+  idFactory.getNodeId({{> variable}}BrowseName),
+  {{> variable}}BrowseName,
+  getStandardDisplayText("{{{displayname}}}"),
+  idFactory.getFactory({{> variable}}BrowseName));
+addComponent({{> variable}});
